@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/ic_bottom_home"
+        android:title="@string/str_bottom_menu_home"
+        android:iconTint="@color/colorAccent"
+        app:showAsAction="withText"
+        tools:ignore="MenuTitle" />
+
+    <item
+        android:id="@+id/menu_more"
+        android:icon="@drawable/ic_bottom_more"
+        android:title="@string/str_bottom_menu_person"
+        android:iconTint="@color/colorAccent"
+        app:showAsAction="withText"
+        tools:ignore="MenuTitle" />
+</menu>
+

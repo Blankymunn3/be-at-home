@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".feature.login.LoginActivity">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="io.be_at_home.features.login.LoginViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+
+                <org.amphiaraus.roundedlayout.RoundedLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginEnd="80dp"
+                    android:background="@color/colorPrimary"
+                    app:rlRoundTopRight="false"
+                    app:rlRoundTopLeft="false"
+                    app:rlRoundBottomRight="true"
+                    app:rlRoundBottomLeft="true"
+                    app:rlRoundedCornerRadius="100dp"
+                    app:rlRoundingBorderColor="@color/colorPrimary"
+                    app:layout_constraintDimensionRatio="1.2:1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/gradient_app_bar"/>
+                </org.amphiaraus.roundedlayout.RoundedLayout>
+
+                <TextView
+                    android:id="@+id/tv_login_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="bottom"
+                    android:gravity="center"
+                    android:text="@string/app_name"
+                    android:textSize="25sp"
+                    android:textColor="@color/colorWhite"
+                    android:fontFamily="@font/notosanskr_bold"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="-0.05"
+                    android:maxLines="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <TextView
+                    android:id="@+id/tv_login_sub_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="세상의 모든 재택 알바들"
+                    android:textSize="12sp"
+                    android:textColor="@color/colorWhite"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:includeFontPadding="false"
+                    android:letterSpacing="-0.05"
+                    android:maxLines="1"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_login_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="48dp"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/et_login_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/edt_login_selector"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="@string/str_login_id"
+                    android:includeFontPadding="false"
+                    android:inputType="textAutoComplete"
+                    android:letterSpacing="-0.05"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:paddingStart="10dp"
+                    android:text="@={viewModel.userID}"
+                    android:textColor="#222222"
+                    android:textColorHint="#AAAAAA"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/del_edt_id"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="14dp"
+                    android:background="@color/Transparent"
+                    android:onClick="onClickDeleteButton"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_edt_delete"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <EditText
+                    android:id="@+id/et_login_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:background="@drawable/edt_login_selector"
+                    android:fontFamily="@font/notosanskr_regular"
+                    android:hint="@string/str_login_pw"
+                    android:includeFontPadding="false"
+                    android:inputType="textPassword"
+                    android:letterSpacing="-0.05"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="14dp"
+                    android:paddingStart="10dp"
+                    android:text="@={viewModel.userPW}"
+                    android:textColor="#222222"
+                    android:textColorHint="#AAAAAA"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/del_edt_pw"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="14dp"
+                    android:background="@color/Transparent"
+                    android:onClick="onClickDeleteButton"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_edt_delete"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_gravity="center"
+                android:enabled="false"
+                android:fontFamily="@font/notosanskr_bold"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.05"
+                android:onClick="@{() -> viewModel.handleLoginClick()}"
+                android:text="@string/str_login_title"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:elevation="10dp"/>
+
+            <Button
+                android:id="@+id/btn_search_pass"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="@color/Transparent"
+                android:fontFamily="@font/notosanskr_regular"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:includeFontPadding="false"
+                android:letterSpacing="-0.05"
+                android:onClick="onClickSignUpButton"
+                android:text="@string/str_sign_up_title"
+                android:textColor="#888888"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
